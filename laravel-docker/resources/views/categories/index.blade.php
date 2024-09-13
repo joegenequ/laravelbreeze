@@ -23,6 +23,11 @@
                                     <td>{{ $category->name }}</td>
                                     <td>
                                         <a href="{{ route('categories.edit', $category) }}">Edit</a>
+                                        <form method="POST" action="{{ route('categories.destroy', $category) }}"> 
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" onclick="return confirm('Are you sure?')">Delete</button>
+                                        </form>
                                     </td>
                                 </tr>
                             @endforeach
